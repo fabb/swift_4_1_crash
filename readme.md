@@ -1,1 +1,1 @@
-This project demonstrates the crash described in [SR-7354](https://bugs.swift.org/browse/SR-7354). Run with Xcode 9.3 on a simulator, it crashes on launch.
+This project demonstrates the crash described in [SR-7354](https://bugs.swift.org/browse/SR-7354). Run with Xcode 9.3 on a simulator or device, it crashes on launch.

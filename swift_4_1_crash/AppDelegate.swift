@@ -1,10 +1,10 @@
 import UIKit
 
 
-// crashes when called on an optimized build (-O or -Osize)
-// this exact repro only crashes on the simulator, but there are other repros that also crash on the device
+// crashes when called on an optimized build (-O or -Osize) both on simulator and device
 func crash() {
-	_ = ProblematicEnum.problematicCase.problematicMethod()
+	let blah = ProblematicEnum.problematicCase.problematicMethod()
+	NSLog("\(blah)")
 }
 
 enum ProblematicEnum {
@@ -21,7 +21,7 @@ enum ProblematicEnum {
 		case .problematicCase:
 			someVariable = SomeClass(someParameter: NSObject())
 			_ = NSObject().description
-			return someVariable // EXC_BAD_ACCESS (simulator: EXC_I386_GPFLT)
+			return someVariable // EXC_BAD_ACCESS (simulator: EXC_I386_GPFLT, device: code=1)
 		}
 		
 		let _ = [someVariable]
